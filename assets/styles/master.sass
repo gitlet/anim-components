@@ -1,0 +1,137 @@
+// [IMPORTING BOURBON]
+@import "bourbon/bourbon"
+// [INITIAL RESET]
+*
+  margin: auto
+  padding: 0
+// [SETTING GLOBAL FONT FAM]
+body
+  font-family: 'Dosis', sans-serif
+  header
+    .menu
+      .menu-list
+        list-style-type: none
+        text-align: center
+        li
+          display: inline-block
+          padding: 20px
+          font-weight: bold
+          a
+            text-decoration: none
+            color: shade(gray, 40%)
+          &:hover
+            background: rgba(234, 234, 234, 0.58)
+            transition: background ease 1s
+    &:hover
+      box-shadow: 0 0 15px rgba(187, 183, 183, 0.51)
+
+  .spinner-wrapper
+    background: rgba(234, 234, 234, 0.58)
+    position: relative
+    top: 20px
+    margin: 5px auto
+    padding: 5px
+    @include size(auto)
+    // border: 1px solid #444
+    .spinner-list
+      list-style-type: none
+      li
+        display: inline-block
+        border: 1px solid #444
+        margin: 5px
+      .rotator
+        @include size(40px)
+        border: 4px solid #444
+        // position: absolute
+        border-top-color:  #468ade
+        border-right-color: #d81616
+        border-bottom-color: #ffed17
+        border-left-color: #22ef22
+        border-radius: 50%
+        // -webkit-animation: spinner1 2s infinite
+        animation: spinner1 .5s infinite 1s
+
+      .round_the_clock
+        @include size(40px)
+        border: 4px solid crimson
+        border-radius: 50%
+        position: relative
+        &::after
+          content: ''
+          @include size(2px 20px)
+          background: crimson
+          position: absolute
+          top: 0
+          left: 18px
+          animation: clockhand 4s infinite
+          transform-origin: bottom right
+
+      .heartbeat
+        @include size(40px)
+        border: 4px solid #75fbef
+        border-radius: 50%
+        position: relative
+        &::after
+          content: ''
+          @include size(20px)
+          background: #3e7f86
+          border-radius: 50%
+          position: absolute
+          top: 9px
+          left: 9px
+          animation: heartbeat 1.5s infinite
+          // transform-origin: bottom right
+
+
+
+@keyframes spinner1
+  0%
+    transform: rotate(1deg)
+    // transform: scale(1.2, 1.2)
+    transition: rotate ease 1s
+  25%
+    transform: rotate(90deg)
+    // transform: scale(1.4, 1.4)
+    transition: rotate ease 1s
+  50%
+    transform: rotate(180deg)
+    // transform: scale(1.6, 1.6)
+    transition: rotate ease 1s
+  75%
+    transform: rotate(270deg)
+    // transform: scale(1.4, 1.4)
+    transition: rotate ease 1s
+  100%
+    transform: rotate(360deg)
+    // transform: scale(1.2, 1.2)
+    transition: rotate ease 1s
+
+@keyframes clockhand
+  0%
+    transform: rotate(0deg)
+  // 25%
+  //   transform: rotate(90deg)
+  // 50%
+  //   transform: rotate(180deg)
+  // 75%
+  //   transform: rotate(270deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes heartbeat
+  0%, 100%
+    transform: scale(1.2, 1.2)
+  25%
+    transform: scale(1.4, 1.4)
+  50%
+    transform: scale(1.6, 1.6)
+  75%
+    transform: scale(1.8, 1.8)
+
+// @-webkit-keyframes spinner1
+//   0%
+//     transform: rotate(1deg)
+//     transition: rotate ease 1s
+//   100%
+//     transform: rotate(360deg)
+//     transition: rotate ease 1s
